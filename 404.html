@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Links Gastro</title>
 <script>
-  // ⬇️ Pegá acá la URL /exec de Links Gastro
-  var APP = 'PEGAR_ACA_URL_EXEC_DE_LINKS_GASTRO';
+  var APP = 'https://script.google.com/a/macros/gastrobsas.com.ar/s/AKfycbyxs6RTu9IRiwCDEetHDf8bJscXZGKbxbbH9HhEEfexz_g3tvEdoxB66NYcYBjcWvV22w/exec';
 
-  var alias = location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  var partes = location.pathname.split('/').filter(Boolean);
+  if (partes[0] === 'links-gastro') partes.shift();   // quita el nombre del repo
+  var alias = (partes[0] || '').toLowerCase();
   location.replace(alias ? APP + '?go=' + encodeURIComponent(alias) : APP);
 </script>
 <style>
